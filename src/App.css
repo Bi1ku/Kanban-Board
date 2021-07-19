@@ -1,0 +1,78 @@
+html {
+  padding-top: 100px;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: #eceeee;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.user4,
+.user3,
+.user2,
+.user1 {
+  color: white;
+  font-size: 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 992px) {
+  .user4,
+  .user3,
+  .user2,
+  .user1 {
+    width: 325px;
+  }
+}
+
+.user1 {
+  background-color: #8e6e95;
+}
+
+.user2 {
+  background-color: #39a59c;
+}
+
+.user3 {
+  background-color: #344759;
+}
+
+.user4 {
+  background-color: #e8741e;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 31px;
+}
+
+.block span {
+  align-self: center;
+}
+
+.hidden {
+  display: none;
+}
