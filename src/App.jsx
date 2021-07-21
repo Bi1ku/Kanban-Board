@@ -34,6 +34,7 @@ class App extends React.Component {
   addItem = (usersIndex) => {
     const users = this.state.users;
     const add = prompt("", "");
+    if (add === null) {return}
     users[usersIndex].push(add);
     this.setState({
       users,
