@@ -6,10 +6,10 @@ import List from "./componets/List";
 class App extends React.Component {
   state = {
     users: [
-      ["user0", "bar"],
-      ["user1", "bar"],
-      ["user2", "bar"],
-      ["user3", "bar"],
+      ["foo", "bar"],
+      ["foo", "bar"],
+      ["foo", "bar"],
+      ["foo", "bar"],
     ],
   };
 
