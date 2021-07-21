@@ -11,10 +11,7 @@ html {
   flex-direction: column;
 }
 
-.user4,
-.user3,
-.user2,
-.user1 {
+.users {
   color: white;
   font-size: 16px;
   height: 48px;
@@ -58,21 +55,23 @@ html {
 .container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .block {
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   margin-bottom: 10px;
   height: 31px;
 }
 
-.block span {
-  align-self: center;
-}
-
 .hidden {
   display: none;
+}
+
+.end {
+  transform: translatex(-115px);
 }

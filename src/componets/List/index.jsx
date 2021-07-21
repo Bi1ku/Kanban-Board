@@ -1,35 +1,33 @@
 import React from "react";
 import Item from "./Items";
+const usersNames = ["Winnie", "Bob", "Thomas", "George"];
 
 export default function List({
   blocktext,
   moveToNext,
-  id,
   moveToPrev,
-  addTask,
+  addItem,
 }) {
   return (
-    <div>
-      {blocktext.map((v, index) => (
-        <div
-          className={
-            v.id === 0 || v.id === 1 || v.id === 2 || v.id === 3 ? "hidden" : ""
-          }
-        >
-          <Item
-            text={v.text}
-            moveToNext={moveToNext}
-            index={index}
-            v={v}
-            key={id + index}
-            id={id}
-            moveToPrev={moveToPrev}
-          />
+    <div className="container">
+      {blocktext.map((v, i, arr) => (
+        <div>
+          <h3
+            className={
+              (i === 0 && "user1 users") || (i === 1 && "user2 users") ||
+              (i === 2 && "user3 users") || (i === 3 && "user4 users")
+            }>
+            {usersNames[i]}
+          </h3>
+          {arr[i].map((v, i2, arr) => (
+            <Item
+              text={arr[i2]} index={i2} usersIndex={i}
+              moveToNext={moveToNext} moveToPrev={moveToPrev}
+            />
+          ))}
+          <button className="end" onClick={() => addItem(i)}>+ Add a card</button>
         </div>
       ))}
-      <button class="end" onClick={() => addTask(id)}>
-        + Add a card
-      </button>
     </div>
   );
 }

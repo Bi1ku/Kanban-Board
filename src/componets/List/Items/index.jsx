@@ -4,16 +4,24 @@ export default function Item({
   text,
   moveToNext,
   index,
-  key,
-  v,
-  id,
+  usersIndex,
   moveToPrev,
 }) {
   return (
-    <div key={key} className={index === v.length - 1 ? "hidden" : "block"}>
-      <button onClick={() => moveToPrev(index, id)}>Prev</button>
+    <div className={"block"}>
+      <button
+        className={usersIndex === 0 && "hidden"}
+        onClick={() => moveToPrev(index, usersIndex)}
+      >
+        Prev
+      </button>
       <span>{text}</span>
-      <button onClick={() => moveToNext(index, id)}>Next</button>
+      <button
+        className={usersIndex === 3 && "hidden"}
+        onClick={() => moveToNext(index, usersIndex)}
+      >
+        Next
+      </button>
     </div>
   );
 }
