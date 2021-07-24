@@ -1,58 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import List from "./componets/List";
 
-class App extends React.Component {
-  state = {
-    users: [
-      ["foo", "bar"],
-      ["foo", "bar"],
-      ["foo", "bar"],
-      ["foo", "bar"],
-    ],
+const App = () => {
+  const [users, setUsers] = useState([
+    ["foo", "1"],
+    ["foo", "2"],
+    ["foo", "3"],
+    ["foo", "4"],
+  ]);
+  const [isTrue, setisTrue] = useState(true);
+
+  const moveToNext = (index, usersIndex) => {
+    const newUsers = users;
+    newUsers[usersIndex + 1].push(newUsers[usersIndex][index]);
+    newUsers[usersIndex].splice(index, 1);
+    setUsers(newUsers);
   };
 
-  moveToNext = (index, usersIndex) => {
-    const users = this.state.users;
-    users[usersIndex + 1].push(users[usersIndex][index]);
-    users[usersIndex].splice(index, 1);
-    this.setState({
-      users,
-    });
+  const moveToPrev = (index, usersIndex) => {
+    const newUsers = users;
+    newUsers[usersIndex - 1].push(newUsers[usersIndex][index]);
+    newUsers[usersIndex].splice(index, 1);
+    setUsers(newUsers);
   };
 
-  moveToPrev = (index, usersIndex) => {
-    const users = this.state.users;
-    users[usersIndex - 1].push(users[usersIndex][index]);
-    users[usersIndex].splice(index, 1);
-    this.setState({
-      users,
-    });
-  };
-
-  addItem = (usersIndex) => {
-    const users = this.state.users;
+  const addItem = (usersIndex) => {
     const add = prompt("", "");
-    if (add === null) {return}
-    users[usersIndex].push(add);
-    this.setState({
-      users,
-    });
+    const newUsers = users;
+    if (add === null) {
+      return;
+    }
+    newUsers[usersIndex].push(add);
+    setUsers(newUsers);
   };
 
-  render() {
-    return (
-      <div className="App">
-        <div className="container">
-          <List
-            blocktext={this.state.users} moveToNext={this.moveToNext}
-            moveToPrev={this.moveToPrev} addItem={this.addItem}
-          />
-        </div>
+  return (
+    <div className="App">
+      <div className="container">
+        <List
+          users={users}
+          moveToNext={moveToNext}
+          moveToPrev={moveToPrev}
+          addItem={addItem}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
