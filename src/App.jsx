@@ -10,20 +10,19 @@ const App = () => {
     ["foo", "3"],
     ["foo", "4"],
   ]);
-  const [isTrue, setisTrue] = useState(true);
 
   const moveToNext = (index, usersIndex) => {
     const newUsers = users;
     newUsers[usersIndex + 1].push(newUsers[usersIndex][index]);
     newUsers[usersIndex].splice(index, 1);
-    setUsers(newUsers);
+    setUsers([...users]);
   };
 
   const moveToPrev = (index, usersIndex) => {
     const newUsers = users;
     newUsers[usersIndex - 1].push(newUsers[usersIndex][index]);
     newUsers[usersIndex].splice(index, 1);
-    setUsers(newUsers);
+    setUsers([...newUsers]);
   };
 
   const addItem = (usersIndex) => {
@@ -33,7 +32,7 @@ const App = () => {
       return;
     }
     newUsers[usersIndex].push(add);
-    setUsers(newUsers);
+    setUsers([...newUsers]);
   };
 
   return (
