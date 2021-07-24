@@ -5,10 +5,10 @@ import List from "./componets/List";
 
 const App = () => {
   const [users, setUsers] = useState([
-    ["foo", "1"],
-    ["foo", "2"],
-    ["foo", "3"],
-    ["foo", "4"],
+    ["foo", "bar"],
+    ["foo", "bar"],
+    ["foo", "bar"],
+    ["foo", "bar"],
   ]);
 
   const moveToNext = (index, usersIndex) => {
