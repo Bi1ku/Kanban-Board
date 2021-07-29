@@ -1,18 +1,18 @@
-import React from "react";
-import Item from "./Items";
-const usersNames = ["Winnie", "Bob", "Thomas", "George"];
+import React from 'react';
+import Item from './Items';
+import usersNames from '../../constants/users';
 
-export default function List({ users, moveToNext, moveToPrev, addItem }) {
+export default function List({ textList, moveToNext, moveToPrev, addItem }) {
   return (
-    <div className="container">
-      {users.map((v, i, arr) => (
+    <div className='container'>
+      {textList.map((v, i, arr) => (
         <div>
           <h3
             className={
-              (i === 0 && "user1 users") ||
-              (i === 1 && "user2 users") ||
-              (i === 2 && "user3 users") ||
-              (i === 3 && "user4 users")
+              (i === 0 && 'user1 users') ||
+              (i === 1 && 'user2 users') ||
+              (i === 2 && 'user3 users') ||
+              (i === 3 && 'user4 users')
             }
           >
             {usersNames[i]}
@@ -26,7 +26,7 @@ export default function List({ users, moveToNext, moveToPrev, addItem }) {
               moveToPrev={moveToPrev}
             />
           ))}
-          <button className="end" onClick={() => addItem(i)}>
+          <button className='end' onClick={() => addItem(i)}>
             + Add a card
           </button>
         </div>

@@ -1,45 +1,38 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import React, { useState } from 'react';
+import './App.css';
+import textList from './constants/text';
 
-import List from "./componets/List";
+import List from './componets/List';
 
 const App = () => {
-  const [users, setUsers] = useState([
-    ["foo", "bar"],
-    ["foo", "bar"],
-    ["foo", "bar"],
-    ["foo", "bar"],
-  ]);
+  const [text, setUsers] = useState(textList);
 
   const moveToNext = (index, usersIndex) => {
-    const newUsers = users;
-    newUsers[usersIndex + 1].push(newUsers[usersIndex][index]);
-    newUsers[usersIndex].splice(index, 1);
-    setUsers([...users]);
+    textList[usersIndex + 1].push(textList[usersIndex][index]);
+    textList[usersIndex].splice(index, 1);
+    setUsers([...text]);
   };
 
   const moveToPrev = (index, usersIndex) => {
-    const newUsers = users;
-    newUsers[usersIndex - 1].push(newUsers[usersIndex][index]);
-    newUsers[usersIndex].splice(index, 1);
-    setUsers([...newUsers]);
+    textList[usersIndex - 1].push(textList[usersIndex][index]);
+    textList[usersIndex].splice(index, 1);
+    setUsers([...text]);
   };
 
   const addItem = (usersIndex) => {
-    const add = prompt("", "");
-    const newUsers = users;
+    const add = prompt('', '');
     if (add === null) {
       return;
     }
-    newUsers[usersIndex].push(add);
-    setUsers([...newUsers]);
+    textList[usersIndex].push(add);
+    setUsers([...text]);
   };
 
   return (
-    <div className="App">
-      <div className="container">
+    <div className='App'>
+      <div className='container'>
         <List
-          users={users}
+          textList={textList}
           moveToNext={moveToNext}
           moveToPrev={moveToPrev}
           addItem={addItem}
